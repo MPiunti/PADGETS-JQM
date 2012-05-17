@@ -9,22 +9,38 @@
 </head>
     
 <body>
+	
+<script src="js/jquery.js"></script>
+<script src="js/jquery.mobile-1.1.0.min.js"></script>
         
-<div id="woePage" data-role="page" >
+<div id="homePage" data-role="page" >
 
 	<div data-role="header" data-position="fixed">
-		<h1>Where On Earth Directory</h1>
+		<h1>Where On Earth Home</h1>
 	</div>
 
-	<div data-role="content">
-         <ul id="woeList" data-role="listview" data-filter="true"></ul>
-    </div>		
 
+    <form action="result.html" method="get" name="form" id="form">
+        <fieldset>
+                <div data-role="fieldcontain">
+                    <label for="nome">Nome:</label>
+                    <input type="text" name="name" id="name" />
+                </div>
+                <div data-role="fieldcontain">
+                    <label for="email">Where on Earth Id:</label>
+                    <input type="email" name="woeid" id="woeid" />
+                </div>
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <input type="submit" value="invia" data-theme="b"/>
+                    </div>
+                    <div class="ui-block-b">
+                        <input type="reset" value="cancella" />
+                    </div>
+                </div>
+            </fieldset>
+	</form>
 </div>
-
-<script src="js/jquery.js"></script>
-<script src="js/jquery.mobile-1.0rc1.min.js"></script>
-<script src="js/woe-id.js"></script>
 
 </body>
 
