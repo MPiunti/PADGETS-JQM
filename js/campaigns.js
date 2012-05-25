@@ -6,15 +6,16 @@ $('#campaignsPage').live('pageshow', function(event) {
 	userId = getUrlVars()["userId"];
 	sessionId = getUrlVars()["sessionId"];
 	campaignDetailURL = "cdetail.html?userId="+userId+"&sessionId="+sessionId+"&cid=";
-	console.log("query 4: " + userId );
+	console.log("query 4: " + userId + " and sessionId: " + sessionId);
 	getCampaigns();
 });
 
 function getCampaigns() {
-	$.getJSON( APIURL+"?sid="+userId , function(data) {
+	$.getJSON( APIURL+"?sid="+sessionId+'&callback=?' , function(data) {
 		$('#campaignList li').remove();
-		campaigns = data.campaigns;
-		console.log('campaigns n: '+ places.count);
+		console.log( " Data: " + data );
+		campaigns = eval(data);
+		console.log('campaigns n: '+ campaigns.count);
 		$.each(campaigns, function(index, campaign) {
 			console.log('campaign: ' + campaign.title);
 
