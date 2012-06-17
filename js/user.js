@@ -1,11 +1,11 @@
-var APIURL = "http://195.251.166.71:8080/PadgetsREST-web/resources/user";
+var User_APIURL = "http://195.251.166.71:8080/PadgetsREST-web/resources/user";
 var sessionId;
 
 $('#udetailsPage').live('pageshow', function(event) {
 	//console.log ('ciao: ' + event );
 	sessionId = getUrlVars()["sessionId"];
 	
-	var s_url = APIURL+"?sid="+sessionId;
+	var s_url = User_APIURL+"?sid="+sessionId;
 	//var woeid = 722347;
 	 $.getJSON(s_url, function(data) {   
 	    	crossDomain: true,  	

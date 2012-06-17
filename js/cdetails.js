@@ -1,4 +1,4 @@
-var APIURL = "http://195.251.166.71:8080/PadgetsREST-web/resources/campaign";
+var Campaigns_APIURL = "http://195.251.166.71:8080/PadgetsREST-web/resources/campaign";
 var sessionId,cid;
 
 $('#cdetailsPage').live('pageshow', function(event) {
@@ -7,7 +7,7 @@ $('#cdetailsPage').live('pageshow', function(event) {
 	sessionId = getUrlVars()["sessionId"];
 	console.log(" cid: : " + cid + " sessionId:" + sessionId);
 	
-	var s_url = APIURL+"?sid="+sessionId;
+	var s_url = Campaigns_APIURL+"?sid="+sessionId;
 	//var woeid = 722347;
 	 $.getJSON(s_url, function(data) {   
 	    	crossDomain: true,  	

@@ -1,4 +1,4 @@
-var APIURL = "http://195.251.166.71:8080/PadgetsREST-web/resources/campaign";
+var Campaigns_APIURL = "http://195.251.166.71:8080/PadgetsREST-web/resources/campaign";
 
 
 var campaignDetailURL;
@@ -11,13 +11,15 @@ $('#campaignsPage').live('pageshow', function(event) {
 	sessionId = getUrlVars()["sessionId"];
 	campaignDetailURL = "cdetail.html?sessionId="+sessionId+"&cid=";
 	console.log("query 4: " + userId + " and sessionId: " + sessionId);
-	$('#userpage').html('<a href="user.html?sid=' + sessionId + '">User</a>');
+	
+
+	$('#userpage').html('<a href="user.html?sid=' + sessionId + '" data-role="button" data-icon="home">User8</a>');
 	getCampaigns();
 });
 
 function getCampaigns() {
 	
-		var s_url = APIURL+"?sid="+sessionId;//+'&callback=?';
+		var s_url = Campaigns_APIURL+"?sid="+sessionId;//+'&callback=?';
 		//$.ajaxSetup({ scriptCharset: "utf-8" , contentType: "application/xml"});
 		console.log( " service url:  " + s_url);
 	
