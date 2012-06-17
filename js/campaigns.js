@@ -13,7 +13,7 @@ $('#campaignsPage').live('pageshow', function(event) {
 	console.log("query 4: " + userId + " and sessionId: " + sessionId);
 	
 
-	$('#userpage').html('<a href="user.html?sessionId=' + sessionId + '" data-role="button" data-icon="home">User8</a>');
+	$('#userpage').html('<a href="user.html?sessionId=' + sessionId + '" data-role="button" data-icon="home">User</a>');
 	getCampaigns();
 });
 
@@ -63,41 +63,15 @@ function extract(data) {
 					    	console.log(" msg count is : " + count);
 					    });
 										
-						$('#campaignList').append('<li>'+
+						$('#campaignList').append('<li><a href="'+ campaignDetailURL + campaign.idCampaign + '">'+
 						'<h4>' + campaign.title + '</h4>' +
-						
-						'<a href="'+ campaignDetailURL + campaign.idCampaign + '">' +
-							'<span class="ui-li-count">' + count + '</span> </a></li>' );
+						'<span class="ui-li-count">' + count + '</span> </a></li>' );
 					}
 				});
 			} //campaignsJSON.length>0
 			$('#campaignList').listview('refresh');
 	}
 	
-	
-	/*$.getJSON( APIURL+"?sid="+sessionId, //+'&callback=?' , 
-		
-		function(data) {
-			alert(data.exampleType);
-			var campaignsJSON = eval(data);			
-			console.log( " Data: " + campaigns );		
-			console.log('campaigns n: '+ campaigns.count);
-			$('#campaignList li').remove();
-			if(campaignsJSON.length>0) {
-				$.each(campaigns, function(index, campaign) {
-					console.log('campaign: ' + campaign.title);
-	
-					if(campaign!= null){
-						$('#campaignList').append('<li>'+
-						'<h4>' + campaign.title + '</h4>' +
-						
-						'<a href="'+ campaignDetailURL + campaign.idCampaign + '">' +
-							'<span class="ui-li-count">' + campaign.title + '</span> </a></li>' );
-						}
-				});
-			} //campaignsJSON.length>0
-			$('#campaignList').listview('refresh');
-		});*/
 
 
 
