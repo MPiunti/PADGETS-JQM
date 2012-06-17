@@ -20,6 +20,7 @@ $(document).ready(function() {
             success: function(data) {
                 //validate the response here, set variables... whatever needed
                     //and if credentials are valid, forward to the next page
+                console.log(data);
                 $.mobile.changePage($('campaigns.html'));
                     //or show an error message
             },

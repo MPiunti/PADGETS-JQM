@@ -11,6 +11,7 @@ $('#campaignsPage').live('pageshow', function(event) {
 	sessionId = getUrlVars()["sessionId"];
 	campaignDetailURL = "cdetail.html?sessionId="+sessionId+"&cid=";
 	console.log("query 4: " + userId + " and sessionId: " + sessionId);
+	$('#userpage').html('<a href="user.html?sid=' + sessionId + '">User</a>');
 	getCampaigns();
 });
 
@@ -18,7 +19,7 @@ function getCampaigns() {
 	
 		var s_url = APIURL+"?sid="+sessionId;//+'&callback=?';
 		//$.ajaxSetup({ scriptCharset: "utf-8" , contentType: "application/xml"});
-	
+		console.log( " service url:  " + s_url);
 	
 	    $.getJSON(s_url, function(data) {   
 	    	crossDomain: true,  	
@@ -26,7 +27,7 @@ function getCampaigns() {
 	        extract(data);
 	    });
 	    
-	    $('#userpage').html('<a href="user.html?sid=' + sessionId + '">User</a>');
+	    
 		/*
 		$.ajax({
 		  type: 'GET',

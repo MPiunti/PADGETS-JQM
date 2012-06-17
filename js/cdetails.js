@@ -5,6 +5,7 @@ $('#cdetailsPage').live('pageshow', function(event) {
 	//console.log ('ciao: ' + event );
 	cid = getUrlVars()["cid"];
 	sessionId = getUrlVars()["sessionId"];
+	console.log(" cid: : " + cid + " sessionId:" + sessionId);
 	
 	var s_url = APIURL+"?sid="+sessionId;
 	//var woeid = 722347;
@@ -20,9 +21,11 @@ function displayCampaign(data) {
 	
 	if(campaignsJSON.length>0) {
 				$.each(campaignsJSON, function(index, campaign) {
-					console.log('campaign: ' + campaign.title);
+					
 	
 					if(campaign.idCampaign == cid){
+						console.log('Focused Campaign: ' + campaign.title);
+						
 						$('#title').text("Title:  "+campaign.title  );
 						//$('#topica').text(campaign.topics.topic[0].topic + ', ' + campaign.topics.topic[0].topic );
 						$('#startdate').text("Start date: "+campaign.startdate );
