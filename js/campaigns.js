@@ -13,7 +13,7 @@ $('#campaignsPage').live('pageshow', function(event) {
 	console.log("query 4: " + userId + " and sessionId: " + sessionId);
 	
 
-	$('#userpage').html('<a href="user.html?sid=' + sessionId + '" data-role="button" data-icon="home">User8</a>');
+	$('#userpage').html('<a href="user.html?sessionId=' + sessionId + '" data-role="button" data-icon="home">User8</a>');
 	getCampaigns();
 });
 
