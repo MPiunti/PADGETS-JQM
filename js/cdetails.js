@@ -40,9 +40,9 @@ function displayCampaign(data) {
 							
 					}
 				});
-		$('#actionList').append('<li><a href="messages.html?sid=' + sessionId + '">Facebook</a></li>');
-		$('#actionList').append('<li><a href="messages.html?sid=' + sessionId + '">Twitter</a></li>');
-		$('#actionList').append('<li><a href="messages.html?sid=' + sessionId + '">Blogger</a></li>');
+		$('#actionList').append('<li><a href="messages.html?sessionId=' + sessionId + '&cid='+cid+'">Facebook</a></li>');
+		$('#actionList').append('<li><a href="messages.html?sessionId=' + sessionId + '&cid='+cid+'">Twitter</a></li>');
+		$('#actionList').append('<li><a href="messages.html?sessionId=' + sessionId + '&cid='+cid+'">Blogger</a></li>');
 		$('#actionList').listview('refresh');
 	}
 }
