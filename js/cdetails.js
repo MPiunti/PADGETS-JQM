@@ -21,18 +21,22 @@ function displayCampaign(data) {
 	
 	if(campaignsJSON.length>0) {
 				$.each(campaignsJSON, function(index, campaign) {
-					
-	
+
 					if(campaign.idCampaign == cid){
 						console.log('Focused Campaign: ' + campaign.title);
 						
-						$('#title').text("Title:  "+campaign.title  );
-						//$('#topica').text(campaign.topics.topic[0].topic + ', ' + campaign.topics.topic[0].topic );
-						$('#startdate').text("Start date: "+campaign.startdate );
-						$('#enddate').text("End date: "+campaign.enddate );
+						$('#title').text(campaign.title  );
+						
+						$('#startdate').text("Start date: "+  new Date(parseInt(campaign.startdate)) );
+						$('#enddate').text("End date: "+ new Date(parseInt(campaign.enddate)) );
 							
 						$('#location').text("Location:  "+campaign.location.name  );
 						$('#notes').text(campaign.notes );
+						var topicstr="";
+						$.each(campaign.topics, function(index2, topic) {
+							topicstr = topicstr + $('#topics').html() + ", " + topic.topic		 
+						});
+						$('#topics').html('<h5>' + topicstr +'</h5>');
 							
 					}
 				});

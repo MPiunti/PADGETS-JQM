@@ -28,8 +28,7 @@ function getCampaigns() {
 	    	console.log(" Result : " + data);
 	        extract(data);
 	    });
-	    
-	    
+  
 		/*
 		$.ajax({
 		  type: 'GET',
