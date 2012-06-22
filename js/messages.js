@@ -2,7 +2,7 @@
  *http://195.251.166.71:8080/PadgetsREST-web/resources/campaign/1/message/?sid=test_user&from=0
  */
 
-var Campaigns_APIURL = "http://195.251.166.71:8080/PadgetsREST-web/resources/campaign/";
+var Campaigns_APIURL = "http://195.251.166.71:8080/PadgetsREST-web/resources/campaign";
 
 
 var Comments_URL;
@@ -12,7 +12,7 @@ var msg_count_URL = 'http://195.251.166.71:8080/PadgetsREST-web/resources/campai
 
 $('#messagesPage').live('pageshow', function(event) {
 	
-	console.log( "message script:  " );
+	console.log( "Message page script BEGIN :  " );
 	
 	cid = getUrlVars()["cid"];
 	sessionId = getUrlVars()["sessionId"];
@@ -44,13 +44,17 @@ function extract(data) {
 					console.log('message (' +index+ '): ' + message.content);
 	
 					if(message!= null){
-						var comment_url = '?sid='+sessionId;
-						var count = 'x';
 						
-										
-						$('#messageList').append('<li><a href="'+ comment_url + '">' + message.content +
-						 + '<br/> <h6>'+message.mediaPath+'</h6>'
-						 + '<span class="ui-li-count">' + count + '</span> </a></li>' );
+						$.each(message.publisheditems, function(index, msg_smp) {
+						
+							var comment_page = 'comments.html?mid='+msg_smp.idPublishedItem+'&cid'+cid+'&sessionId='+sessionId;
+							var count = 'x';
+							
+											
+							$('#messageList').append('<li><a href="'+ comment_page + '">' + message.content +
+							 + '  '+ msg_smp.idPublishChannel.name+'  ' + msg_smp.idPublishChannel.network
+							 + '<span class="ui-li-count">  ' + count + '</span> </a></li>' );
+						});
 					}
 				});
 			} //campaignsJSON.length>0
