@@ -45,9 +45,9 @@ function extract(data) {
 						var comment_url = '?sid='+sessionId;
 						var count = 'x';
 									
-						$('#commentsList').append('<li>'+comment.content
-										+' <br/> '+comment.network+
-						                +' <br/> '+comment.authorName+'</li>' );
+						$('#commentList').append('<li>'+comment.content
+										+' - '+comment.network+
+						                +' - '+comment.authorName+'</li>' );
 					}
 				});
 			} //commentssJSON.length>0

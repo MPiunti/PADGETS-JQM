@@ -48,7 +48,7 @@ function extract(data) {
 						
 						$.each(message.publisheditems, function(index, msg_smp) {
 						
-							var comment_page = 'comments.html?mid='+msg_smp.idPublishedItem+'&cid'+cid+'&sessionId='+sessionId;
+							var comment_page = 'comments.html?mid='+message.idMessage+'&cid'+cid+'&sessionId='+sessionId;
 							var count = 'x';
 							var network = msg_smp.idPublishChannel.network;
 							
