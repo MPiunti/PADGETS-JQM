@@ -6,7 +6,7 @@ var Campaigns_APIURL = "http://195.251.166.71:8080/PadgetsREST-web/resources/cam
 
 
 var Comments_URL;
-var sessionId, cid;
+var sessionId, cid, smp;
 
 var msg_count_URL = 'http://195.251.166.71:8080/PadgetsREST-web/resources/campaign' ;//[campaign_id]/messagecount/?sid=';
 
@@ -16,6 +16,7 @@ $('#messagesPage').live('pageshow', function(event) {
 	
 	cid = getUrlVars()["cid"];
 	sessionId = getUrlVars()["sessionId"];
+	smp = getUrlVars()["smp"];
 
 	//campaignDetailURL = "cdetail.html?sessionId="+sessionId+"&cid=";
 
@@ -38,7 +39,7 @@ function extract(data) {
 			var messagesJSON = eval(data);			
 			console.log( " Data: " + messagesJSON );		
 			console.log('messages n: '+ messagesJSON.count);
-			$('#cmessageList li').remove();
+			$('#messageList li').remove();
 			if(messagesJSON.length>0) {
 				$.each(messagesJSON, function(index, message) {
 					console.log('message (' +index+ '): ' + message.content);
@@ -49,11 +50,13 @@ function extract(data) {
 						
 							var comment_page = 'comments.html?mid='+msg_smp.idPublishedItem+'&cid'+cid+'&sessionId='+sessionId;
 							var count = 'x';
+							var network = msg_smp.idPublishChannel.network;
 							
-											
-							$('#messageList').append('<li><a href="'+ comment_page + '">' + message.content +
-							 + '  '+ msg_smp.idPublishChannel.name+'  ' + msg_smp.idPublishChannel.network
-							 + '<span class="ui-li-count">  ' + count + '</span> </a></li>' );
+							if(network == smp)	{			
+								$('#messageList').append('<li><a href="'+ comment_page + '">' + message.content +
+								 + '  '+ msg_smp.idPublishChannel.name+'  ' + network
+								 + '<span class="ui-li-count">  ' + count + '</span> </a></li>' );
+							}
 						});
 					}
 				});
