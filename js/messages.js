@@ -27,14 +27,14 @@ $('#messagesPage').live('pageshow', function(event) {
 	    $.getJSON(s_url, function(data) {   
 	    	crossDomain: true,  	
 	    	console.log(" Result : " + data);
-	        extract(data);
+	        extractMessages(data);
 	    });
 });
 
 
 	
 	
-function extract(data) {
+function extractMessages(data) {
 			//alert("extracting: " + data.exampleType);
 			var messagesJSON = eval(data);			
 			console.log( " Data: " + messagesJSON );		

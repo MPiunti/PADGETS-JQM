@@ -23,14 +23,14 @@ $('#commentsPage').live('pageshow', function(event) {
 	    $.getJSON(s_url, function(data) {   
 	    	crossDomain: true,  	
 	    	console.log(" Result : " + data);
-	        extract(data);
+	        extractComments(data);
 	    });
 });
 
 
 	
 	
-function extract(data) {
+function extractComments(data) {
 	
 			//alert("extracting: " + data.exampleType);
 			var commentsJSON = eval(data);			

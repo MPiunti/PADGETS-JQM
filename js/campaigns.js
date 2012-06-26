@@ -26,7 +26,7 @@ function getCampaigns() {
 	    $.getJSON(s_url, function(data) {   
 	    	crossDomain: true,  	
 	    	console.log(" Result : " + data);
-	        extract(data);
+	        extractCampaigns(data);
 	    });
   
 		/*
@@ -42,7 +42,7 @@ function getCampaigns() {
 	}	
 	
 	
-function extract(data) {
+function extractCampaigns(data) {
 			//alert("extracting: " + data.exampleType);
 			var campaignsJSON = eval(data);			
 			console.log( " Data: " + campaignsJSON );		
