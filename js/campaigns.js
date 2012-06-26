@@ -13,7 +13,7 @@ $('#campaignsPage').live('pageshow', function(event) {
 	console.log("query 4: " + userId + " and sessionId: " + sessionId);
 	
 
-	$('#userpage').html('<a href="user.html?sessionId=' + sessionId + '" data-role="button" data-icon="home">User</a>');
+	//$('#userpage').html('<a href="user.html?sessionId=' + sessionId + '" data-role="button" data-icon="home">User</a>');
 	getCampaigns();
 });
 
@@ -71,17 +71,3 @@ function extract(data) {
 			$('#campaignList').listview('refresh');
 	}
 	
-
-
-
-function getUrlVars() {
-    var vars = [], hash;
-    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-    for(var i = 0; i < hashes.length; i++)
-    {
-        hash = hashes[i].split('=');
-        vars.push(hash[0]);
-        vars[hash[0]] = hash[1];
-    }
-    return vars;
-}

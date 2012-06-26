@@ -12,6 +12,9 @@
 	
 	<script src="js/jquery.js"></script>
 	<script src="js/jquery.mobile-1.1.0.min.js"></script>
+	<script src="js/custom.js"></script>
+	<script src="js/campaigns.js"></script>
+	<script src="js/platforms.js"></script>
 	<script src="js/user.js"></script>
 	
 
@@ -39,9 +42,25 @@
 
   </div>
   
-  	 <div data-role="footer">
-         <h4>Page Footer</h4>
- 	 </div>
+  	 		<!-- footer -->
+		<div data-role="footer">		
+			<!-- navbar -->
+			<div data-role="navbar">
+				<ul>
+					<li><a href="user.html" onclick="location.href=this.href+'?sessionId='+sessionId;return false;">
+						User Details</a></li>
+					<li>
+						<a href="campaigns.html" onclick="location.href=this.href+'?sessionId='+sessionId;return false;">
+						Campaigns</a>
+					</li>
+					<li>
+						<a href="platforms.html" onclick="location.href=this.href+'?sessionId='+sessionId;return false;">
+						Linked Social Media</a>
+					</li>
+				</ul>
+			</div><!-- /navbar -->
+			<h4>User Details</h4>
+		</div><!-- /footer -->
 
 </div>
 
