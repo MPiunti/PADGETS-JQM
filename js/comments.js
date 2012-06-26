@@ -8,7 +8,7 @@ var sessionId, cid;
 
 $('#commentsPage').live('pageshow', function(event) {
 	
-	console.log( "COmments page script BEGIN :  " );
+	console.log( "Comments page script BEGIN :  " );
 	
 	mid = getUrlVars()["mid"];
 	cid = getUrlVars()["cid"];
