@@ -56,11 +56,11 @@ function extract(data) {
 						var count_url = msg_count_URL+ campaign.idCampaign+ '/messagecount/?sid='+sessionId;
 						var count;
 						
-						/*$.getJSON(count_url, function(data) {   
+						$.getJSON(count_url, function(data) {   
 	    					crossDomain: true,  	
 	    					count = data.count;
 					    	console.log(" msg count is : " + count);
-					    });*/
+					    });
 										
 						$('#campaignList').append('<li><a href="'+ campaignDetailURL + campaign.idCampaign + '">'+
 						'<h4>' + campaign.title + '</h4>' +
