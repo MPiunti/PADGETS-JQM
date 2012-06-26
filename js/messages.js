@@ -8,7 +8,7 @@ var Campaigns_APIURL = "http://195.251.166.71:8080/PadgetsREST-web/resources/cam
 var Comments_URL;
 var sessionId, cid, smp;
 
-var msg_count_URL = 'http://195.251.166.71:8080/PadgetsREST-web/resources/campaign' ;//[campaign_id]/messagecount/?sid=';
+var msg_count_URL = 'http://195.251.166.71:8080/PadgetsREST-web/resources/campaign/' ;//[campaign_id]/messagecount/?sid=';
 
 $('#messagesPage').live('pageshow', function(event) {
 	
