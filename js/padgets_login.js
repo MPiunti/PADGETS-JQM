@@ -5,8 +5,8 @@
  * 			developed by Michele Piunti on May-Decemner 2012
  */
 
-//var url_redirect = "http://rapidminersrv.aegean.gr:8080";
-var url_redirect = "http://127.0.0.1:8020";
+var url_redirect = "http://rapidminersrv.aegean.gr:8080";
+//var url_redirect = "http://127.0.0.1:8020";
 
 $(document).ready(function() {
     $("#login_submit").click(function(event) {
