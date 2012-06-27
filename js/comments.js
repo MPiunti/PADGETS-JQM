@@ -1,4 +1,13 @@
 /**
+ * (c)Reply Whitehall
+ * 		PADGETS European Project - Padgets.eu
+ * 		HTML5 + JQuery Mobile Web Front End 
+ * 			developed by Michele Piunti on May-Decemner 2012
+ */
+
+
+
+/**
  * http://195.251.166.71:8080/PadgetsREST-web/resources/message/[message_id]/comment/?sid=test_user&from=[from]
  */
 
@@ -13,8 +22,6 @@ $('#commentsPage').live('pageshow', function(event) {
 	mid = getUrlVars()["mid"];
 	cid = getUrlVars()["cid"];
 	sessionId = getUrlVars()["sessionId"];
-
-
 
 	var s_url = Message_APIURL+"/"+mid+"/comment/?sid="+sessionId+'&from=0';
 

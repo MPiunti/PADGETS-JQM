@@ -1,3 +1,11 @@
+/**
+ * (c)Reply Whitehall
+ * 		PADGETS European Project - Padgets.eu
+ * 		HTML5 + JQuery Mobile Web Front End 
+ * 			developed by Michele Piunti on May-Decemner 2012
+ */
+
+
 var Campaigns_APIURL = "http://195.251.166.71:8080/PadgetsREST-web/resources/campaign";
 var sessionId,cid;
 

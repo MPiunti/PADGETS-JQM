@@ -1,15 +1,18 @@
 /**
  * (c)Reply Whitehall
  * 		PADGETS European Project - Padgets.eu
- * 		Mobile Web Front End 
+ * 		HTML5 + JQuery Mobile Web Front End 
  * 			developed by Michele Piunti on May-Decemner 2012
  */
 
-var url_redirect = "http://rapidminersrv.aegean.gr:8080";
-//var url_redirect = "http://127.0.0.1:8020";
+//var url_redirect = "http://rapidminersrv.aegean.gr:8080";
+var url_redirect = "http://"+location.host;
 
 $(document).ready(function() {
-    $("#login_submit").click(function(event) {
+	//console.log("redirect URL: " + url_redirect);
+	//console.log("location.host:" + location.host + "   - location.pathname:" + location.pathname) ;
+	
+    /*$("#login_submit").click(function(event) {
         event.preventDefault();
         var credentials = { type: 'EMAIL', username: $('#login_username').val(), password: $('#login_password').val() };
         console.log( "login: " + credentials );
@@ -29,7 +32,7 @@ $(document).ready(function() {
             error: function() { // server couldn't be reached or other error 
             }
         });
-    });
+    });*/
     
     
     $("#facebookLink").click(function(event) {

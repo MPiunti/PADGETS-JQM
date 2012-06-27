@@ -11,7 +11,6 @@ $('#campaignsPage').live('pageshow', function(event) {
 	sessionId = getUrlVars()["sessionId"];
 	campaignDetailURL = "cdetail.html?sessionId="+sessionId+"&cid=";
 	console.log("query 4: " + userId + " and sessionId: " + sessionId);
-	
 
 	//$('#userpage').html('<a href="user.html?sessionId=' + sessionId + '" data-role="button" data-icon="home">User</a>');
 	getCampaigns();
