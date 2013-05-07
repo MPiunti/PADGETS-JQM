@@ -34,9 +34,10 @@ function displayCampaign(data) {
 						console.log('Focused Campaign: ' + campaign.title);
 						
 						$('#title').text(campaign.title  );
-						
-						$('#startdate').text("Start date: "+  new Date(parseInt(campaign.startdate)) );
-						$('#enddate').text("End date: "+ new Date(parseInt(campaign.enddate)) );
+						var date1 = new Date(parseInt(campaign.startdate));
+						var date2 = new Date(parseInt(campaign.enddate));
+						$('#startdate').text("Start date: "+  date1.getDate() + "-" + (date1.getMonth()+1) +"-" + date1.getFullYear() );
+						$('#enddate').text("End date: "+  date2.getDate() + "-" + (date2.getMonth()+1) +"-" + date2.getFullYear() );
 							
 						$('#location').text("Location:  "+campaign.location.name  );
 						$('#notes').text(campaign.notes );
