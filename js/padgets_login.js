@@ -9,30 +9,7 @@
 var url_redirect = "http://"+location.host;
 
 $(document).ready(function() {
-	//console.log("redirect URL: " + url_redirect);
-	//console.log("location.host:" + location.host + "   - location.pathname:" + location.pathname) ;
-	
-    /*$("#login_submit").click(function(event) {
-        event.preventDefault();
-        var credentials = { type: 'EMAIL', username: $('#login_username').val(), password: $('#login_password').val() };
-        console.log( "login: " + credentials );
-        $.ajax({
-            type: "PUT",
-            url: "api/auth",
-            cache: false,
-            data: JSON.stringify(credentials),
-            contentType: "application/json; charset=utf-8",
-            success: function(data) {
-                //validate the response here, set variables... whatever needed
-                    //and if credentials are valid, forward to the next page
-                console.log(data);
-                $.mobile.changePage($('campaigns.html'));
-                    //or show an error message
-            },
-            error: function() { // server couldn't be reached or other error 
-            }
-        });
-    });*/
+
     
     
     $("#facebookLink").click(function(event) {
