@@ -9,7 +9,7 @@
 var User_APIURL = "http://195.251.166.71:8080/PadgetsREST-web/resources/user";
 var sessionId;
 
-$('#udetailsPage').live('pageshow', function(event) {
+$('#udetailsPage').ready(function(event) {
 	//console.log ('ciao: ' + event );
 	sessionId = getUrlVars()["sessionId"];
 	

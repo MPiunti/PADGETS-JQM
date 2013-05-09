@@ -7,7 +7,7 @@
 
 
 
-$('#platformssPage').live('pageshow', function(event) {
+$('#platformssPage').ready(function(event) {
 
 	sessionId = getUrlVars()["sessionId"];
 

@@ -3,19 +3,20 @@ var Campaigns_APIURL = "http://195.251.166.71:8080/PadgetsREST-web/resources/cam
 
 var campaignDetailURL;
 var userId,sessionId;
+var count;
+						
 
 var msg_count_URL = 'http://195.251.166.71:8080/PadgetsREST-web/resources/campaign/' ;//[campaign_id]/messagecount/?sid=';
 
-$('#campaignsPage').live('pageshow', function(event) {
+
+
+$('#campaignsPage').ready(function(event) {
 	userId = getUrlVars()["userId"];
 	sessionId = getUrlVars()["sessionId"];
 	campaignDetailURL = "cdetail.html?sessionId="+sessionId+"&cid=";
 	console.log("query 4: " + userId + " and sessionId: " + sessionId);
-
-	//$('#userpage').html('<a href="user.html?sessionId=' + sessionId + '" data-role="button" data-icon="home">User</a>');
-	getCampaigns();
-});
-
+	
+	
 function getCampaigns() {
 	
 		var s_url = Campaigns_APIURL+"?sid="+sessionId;//+'&callback=?';
@@ -38,7 +39,7 @@ function getCampaigns() {
 	      error: function(data) {alert("error " + data);},
 	      jsonp: "jsonpCallback"
 		}); */
-	}	
+	}	;
 	
 	
 function extractCampaigns(data) {
@@ -53,20 +54,26 @@ function extractCampaigns(data) {
 	
 					if(campaign!= null){
 						var count_url = msg_count_URL+ campaign.idCampaign+ '/messagecount/?sid='+sessionId;
-						var count;
 						
 						$.getJSON(count_url, function(data) {   
 	    					crossDomain: true,  	
 	    					count = data.count;
-					    	console.log(" msg count is : " + count);
+					    	console.log(" msg count is : " + count);				
 					    });
-										
+
 						$('#campaignList').append('<li><a href="'+ campaignDetailURL + campaign.idCampaign + '">'+
-						'<h4>' + campaign.title + '</h4>' +
-						'<span class="ui-li-count">' + count + '</span> </a></li>' );
+							'<h4>' + campaign.title + '</h4>'
+							+'<span class="ui-li-count">' + count + '</span></a></li>' );
 					}
 				});
 			} //campaignsJSON.length>0
+			console.log(" refreshed list " );	
 			$('#campaignList').listview('refresh');
-	}
+			
+	};
+	
+
+	//$('#userpage').html('<a href="user.html?sessionId=' + sessionId + '" data-role="button" data-icon="home">User</a>');
+	getCampaigns();
+});
 	

@@ -15,7 +15,7 @@ var Message_APIURL = "http://195.251.166.71:8080/PadgetsREST-web/resources/messa
 
 var sessionId, cid;
 
-$('#commentsPage').live('pageshow', function(event) {
+$('#commentsPage').ready(function(event) {
 	
 	console.log( "Comments page script BEGIN :  " );
 	

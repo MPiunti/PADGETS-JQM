@@ -18,7 +18,7 @@ var sessionId, cid, smp;
 
 var msg_count_URL = 'http://195.251.166.71:8080/PadgetsREST-web/resources/campaign/' ;//[campaign_id]/messagecount/?sid=';
 
-$('#messagesPage').live('pageshow', function(event) {
+$('#messagesPage').ready( function(event) {
 	
 	console.log( "Message page script BEGIN :  " );
 	
@@ -56,7 +56,7 @@ function extractMessages(data) {
 						
 						$.each(message.publisheditems, function(index, msg_smp) {
 						
-							var comment_page = 'comments.html?mid='+message.idMessage+'&cid'+cid+'&sessionId='+sessionId;
+							var comment_page = 'comments.html?mid='+message.idMessage+'&cid='+cid+'&sessionId='+sessionId;
 							var count = 'x';
 							var network = msg_smp.idPublishChannel.network;
 							
