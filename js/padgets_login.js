@@ -14,20 +14,20 @@ $(document).ready(function() {
     
     $("#facebookLink").click(function(event) {
     	var url_base = "http://rapidminersrv.aegean.gr:8088/padgets/login?provider=facebook&redirectUrl=";
-		var strLink = url_base + url_redirect + "/PADGETS-JQM/campaigns.html";				
+		var strLink = url_base + url_redirect + "/Padgets-JQM/campaigns.html";				
     	this.setAttribute("href",strLink);   	
     });
     
     $("#googleLink").click(function(event) {
     	var url_base = "http://rapidminersrv.aegean.gr:8088/padgets/login?provider=google&redirectUrl=";
-		var strLink = url_base + url_redirect + "/PADGETS-JQM/campaigns.html";				
+		var strLink = url_base + url_redirect + "/Padgets-JQM/campaigns.html";				
     	this.setAttribute("href",strLink);   	
     });
     
     
     $("#twitterLink").click(function(event) {
     	var url_base = "http://rapidminersrv.aegean.gr:8088/padgets/login?provider=twitter&redirectUrl=";
-		var strLink = url_base + url_redirect + "/PADGETS-JQM/campaigns.html";				
+		var strLink = url_base + url_redirect + "/Padgets-JQM/campaigns.html";				
     	this.setAttribute("href",strLink);   	
     });
 });

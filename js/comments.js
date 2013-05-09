@@ -53,8 +53,8 @@ function extractComments(data) {
 						var count = 'x';
 									
 						$('#commentList').append('<li>'+comment.content
-										+' - '+comment.network+
-						                +' - '+comment.authorName+'</li>' );
+										//+' - '+comment.network+
+						                +'  ('+comment.authorName+')</li>' );
 					}
 				});
 			} //commentssJSON.length>0

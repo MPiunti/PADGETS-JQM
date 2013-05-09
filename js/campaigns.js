@@ -55,15 +55,18 @@ function extractCampaigns(data) {
 					if(campaign!= null){
 						var count_url = msg_count_URL+ campaign.idCampaign+ '/messagecount/?sid='+sessionId;
 						
+						$('#campaignList').append('<li><a href="'+ campaignDetailURL + campaign.idCampaign + '">'+
+							'<h4>' + campaign.title + '</h4>'
+							+'<span name="msg_'+index+'" class="ui-li-count"></span></a></li>' );
+						
 						$.getJSON(count_url, function(data) {   
 	    					crossDomain: true,  	
 	    					count = data.count;
-					    	console.log(" msg count is : " + count);				
+					    	//console.log(" msg count is : " + count);
+					    	$('[name="msg_'+index+'"]').append(count);				
 					    });
 
-						$('#campaignList').append('<li><a href="'+ campaignDetailURL + campaign.idCampaign + '">'+
-							'<h4>' + campaign.title + '</h4>'
-							+'<span class="ui-li-count">' + count + '</span></a></li>' );
+						
 					}
 				});
 			} //campaignsJSON.length>0

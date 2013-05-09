@@ -31,18 +31,10 @@ $('#messagesPage').ready( function(event) {
 	var s_url = Campaigns_APIURL+"/"+cid+"/message/?sid="+sessionId+'&from=0';
 
 	console.log( "calling message service url:  " + s_url);
-	
-	    $.getJSON(s_url, function(data) {   
-	    	crossDomain: true,  	
-	    	console.log(" Result : " + data);
-	        extractMessages(data);
-	    });
-});
 
 
 	
-	
-function extractMessages(data) {
+	function extractMessages(data) {
 			//alert("extracting: " + data.exampleType);
 			var messagesJSON = eval(data);			
 			console.log( " Data: " + messagesJSON );		
@@ -56,20 +48,33 @@ function extractMessages(data) {
 						
 						$.each(message.publisheditems, function(index, msg_smp) {
 						
-							var comment_page = 'comments.html?mid='+message.idMessage+'&cid='+cid+'&sessionId='+sessionId;
+							var comment_page = './comments.html?mid='+message.idMessage+'&cid='+cid+'&sessionId='+sessionId;
 							var count = 'x';
 							var network = msg_smp.idPublishChannel.network;
 							
 							if(network == smp)	{			
 								$('#messageList').append('<li><a href="'+ comment_page + '">' + message.content +
-								 + '  '+ msg_smp.idPublishChannel.name+'  ' + network
-								 + '<span class="ui-li-count">  ' + count + '</span> </a></li>' );
+								 + '(' + network
+								 + ')<span name="msg_'+index+'" class="ui-li-count"></span></a></li>' );
 							}
 						});
 					}
 				});
 			} //campaignsJSON.length>0
+			
 			$('#messageList').listview('refresh');
 	}
+	
+		
+    $.getJSON(s_url, function(data) {   
+    	crossDomain: true,  	
+    	console.log(" Result : " + data);
+        extractMessages(data);        
+    });
+
+
+  
+	
+});
 	
 
