@@ -53,7 +53,7 @@ $('#messagesPage').ready( function(event) {
 							var network = msg_smp.idPublishChannel.network;
 							
 							if(network == smp)	{			
-								$('#messageList').append('<li><a href="'+ comment_page + '">' + message.content +
+								$('#messageList').append('<li><a class="messages" href="'+ comment_page + '">' + message.content +
 								 + '(' + network
 								 + ')<span name="msg_'+index+'" class="ui-li-count"></span></a></li>' );
 							}
@@ -71,9 +71,14 @@ $('#messagesPage').ready( function(event) {
     	console.log(" Result : " + data);
         extractMessages(data);        
     });
+    
+    
+    $('a.messages').on("click", function (e) {
+    	e.preventDefault();
+    	console.log( $(this).attr("href") + '   clicked!');
+    	window.location.href = $(this).attr("href");
+    });
 
-
-  
 	
 });
 	

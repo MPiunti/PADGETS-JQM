@@ -10,24 +10,27 @@ var url_redirect = "http://"+location.host;
 
 $(document).ready(function() {
 
+
     
-    
-    $("#facebookLink").click(function(event) {
+    $("#facebookLink").on("click", function(event) {
     	var url_base = "http://rapidminersrv.aegean.gr:8088/padgets/login?provider=facebook&redirectUrl=";
 		var strLink = url_base + url_redirect + "/Padgets-JQM/campaigns.html";				
-    	this.setAttribute("href",strLink);   	
+    	//this.setAttribute("href",strLink);  
+    	window.location.href = strLink;	
     });
     
-    $("#googleLink").click(function(event) {
+    $("#googleLink").on("click", function(event) {
     	var url_base = "http://rapidminersrv.aegean.gr:8088/padgets/login?provider=google&redirectUrl=";
 		var strLink = url_base + url_redirect + "/Padgets-JQM/campaigns.html";				
-    	this.setAttribute("href",strLink);   	
+    	//this.setAttribute("href",strLink);   	
+    	window.location.href = strLink;
     });
     
     
-    $("#twitterLink").click(function(event) {
+    $("#twitterLink").on("click", function(event) {
     	var url_base = "http://rapidminersrv.aegean.gr:8088/padgets/login?provider=twitter&redirectUrl=";
 		var strLink = url_base + url_redirect + "/Padgets-JQM/campaigns.html";				
-    	this.setAttribute("href",strLink);   	
+    	//this.setAttribute("href",strLink);   	
+    	window.location.href = strLink;
     });
 });
