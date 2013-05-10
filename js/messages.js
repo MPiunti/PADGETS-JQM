@@ -53,7 +53,7 @@ $('#messagesPage').ready( function(event) {
 							var network = msg_smp.idPublishChannel.network;
 							
 							if(network == smp)	{			
-								$('#messageList').append('<li><a class="messages" href="'+ comment_page + '">' + message.content +
+								$('#messageList').append('<li><a class="messages" href="'+ comment_page + '" data-transition="pop">' + message.content +
 								 + '(' + network
 								 + ')<span name="msg_'+index+'" class="ui-li-count"></span></a></li>' );
 							}

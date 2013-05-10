@@ -55,7 +55,7 @@ function extractCampaigns(data) {
 					if(campaign!= null){
 						var count_url = msg_count_URL+ campaign.idCampaign+ '/messagecount/?sid='+sessionId;
 						
-						$('#campaignList').append('<li><a href="'+ campaignDetailURL + campaign.idCampaign + '">'+
+						$('#campaignList').append('<li><a href="'+ campaignDetailURL + campaign.idCampaign + '" data-transition="pop">'+
 							'<h4>' + campaign.title + '</h4>'
 							+'<span name="msg_'+index+'" class="ui-li-count"></span></a></li>' );
 						
@@ -65,8 +65,6 @@ function extractCampaigns(data) {
 					    	//console.log(" msg count is : " + count);
 					    	$('[name="msg_'+index+'"]').append(count);				
 					    });
-
-						
 					}
 				});
 			} //campaignsJSON.length>0
@@ -74,8 +72,6 @@ function extractCampaigns(data) {
 			$('#campaignList').listview('refresh');
 			
 	};
-	
-
 	//$('#userpage').html('<a href="user.html?sessionId=' + sessionId + '" data-role="button" data-icon="home">User</a>');
 	getCampaigns();
 });

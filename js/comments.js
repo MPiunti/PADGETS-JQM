@@ -32,12 +32,8 @@ $('#commentsPage').ready(function(event) {
 	    	console.log(" Result : " + data);
 	        extractComments(data);
 	    });
-});
 
-
-	
-	
-function extractComments(data) {
+	function extractComments(data) {
 	
 			//alert("extracting: " + data.exampleType);
 			var commentsJSON = eval(data);			
@@ -62,3 +58,4 @@ function extractComments(data) {
 	}
 	
 
+});
