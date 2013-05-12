@@ -19,9 +19,6 @@ var sessionId, cid, smp;
 var msg_count_URL = "http://195.251.166.71:8080/PadgetsREST-web/resources/campaign/" ;//[campaign_id]/messagecount/?sid=';
 
 $('#messagesPage').ready( function(event) {
-//$('#messagesPage').live('pageshow', function(event) {
-	
-	console.log( "Message page script BEGIN :  " );
 	
 	cid = getUrlVars()["cid"];
 	sessionId = getUrlVars()["sessionId"];
@@ -48,14 +45,15 @@ $('#messagesPage').ready( function(event) {
 						
 						$.each(message.publisheditems, function(index, msg_smp) {
 						
-							var comment_page = "http://"+location.host+"/Padgets-JQM/comments.html?mid="+message.idMessage+"&cid="+cid+"&sessionId="+sessionId;
+							var comment_page = "comments.html?mid="+message.idMessage+"&cid="+cid+"&sessionId="+sessionId;
 							var count = 'x';
 							var network = msg_smp.idPublishChannel.network;
 							
 							if(network === smp)	{			
-								$('#messageList').append('<li><a href="'+ message.permalink + '">' 
+								$('#messageList').append('<li><a href="'+ comment_page + '" rel="external" data-ajax="false">' 
 								+ message.content + ' (' + network
-								 + ')</a><a href="'+comment_page +'">PermaLink</a></li>' );
+								 + ')</a><a href="'+ message.permalink
+								 +'" rel="external" data-ajax="false">PermaLink</a></li>' );
 							}
 						});
 					}
@@ -74,11 +72,13 @@ $('#messagesPage').ready( function(event) {
     
    
     
-   $('a.messages.ui-link-inherit').bind( 'click', function (e) {
+   $('a.messages.ui-link-inherit,a.ui-li-link-alt').bind( 'click', function (e) {
     	e.preventDefault();
     	console.log( $(this).attr("href") + '   clicked!');
     	window.location.href = $(this).attr("href");
     })
+    
+    
 	
 });
 	
