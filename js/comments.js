@@ -11,7 +11,7 @@
  * http://195.251.166.71:8080/PadgetsREST-web/resources/message/[message_id]/comment/?sid=test_user&from=[from]
  */
 
-var Message_APIURL = "http://195.251.166.71:8080/PadgetsREST-web/resources/message";
+var Comments_APIURL = "http://195.251.166.71:8080/PadgetsREST-web/resources/message";
 
 var sessionId, cid;
 
@@ -23,7 +23,7 @@ $('#commentsPage').ready(function(event) {
 	cid = getUrlVars()["cid"];
 	sessionId = getUrlVars()["sessionId"];
 
-	var s_url = Message_APIURL+"/"+mid+"/comment/?sid="+sessionId+'&from=0';
+	var s_url = Comments_APIURL+"/"+mid+"/comment/?sid="+sessionId+'&from=0';
 
 	console.log( "calling comments service url:  " + s_url);
 	

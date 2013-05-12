@@ -16,9 +16,10 @@ var Campaigns_APIURL = "http://195.251.166.71:8080/PadgetsREST-web/resources/cam
 var Comments_URL;
 var sessionId, cid, smp;
 
-var msg_count_URL = 'http://195.251.166.71:8080/PadgetsREST-web/resources/campaign/' ;//[campaign_id]/messagecount/?sid=';
+var msg_count_URL = "http://195.251.166.71:8080/PadgetsREST-web/resources/campaign/" ;//[campaign_id]/messagecount/?sid=';
 
 $('#messagesPage').ready( function(event) {
+//$('#messagesPage').live('pageshow', function(event) {
 	
 	console.log( "Message page script BEGIN :  " );
 	
@@ -31,7 +32,6 @@ $('#messagesPage').ready( function(event) {
 	var s_url = Campaigns_APIURL+"/"+cid+"/message/?sid="+sessionId+'&from=0';
 
 	console.log( "calling message service url:  " + s_url);
-
 
 	
 	function extractMessages(data) {
@@ -48,37 +48,37 @@ $('#messagesPage').ready( function(event) {
 						
 						$.each(message.publisheditems, function(index, msg_smp) {
 						
-							var comment_page = './comments.html?mid='+message.idMessage+'&cid='+cid+'&sessionId='+sessionId;
+							var comment_page = "http://"+location.host+"/Padgets-JQM/comments.html?mid="+message.idMessage+"&cid="+cid+"&sessionId="+sessionId;
 							var count = 'x';
 							var network = msg_smp.idPublishChannel.network;
 							
-							if(network == smp)	{			
-								$('#messageList').append('<li><a class="messages" href="'+ comment_page + '" data-transition="pop">' 
+							if(network === smp)	{			
+								$('#messageList').append('<li><a href="'+ message.permalink + '">' 
 								+ message.content + ' (' + network
-								 + ') <span name="msg_'+index+'" class="ui-li-count"></span></a></li>' );
+								 + ')</a><a href="'+comment_page +'">PermaLink</a></li>' );
 							}
 						});
 					}
 				});
 			} //campaignsJSON.length>0
-			
-			$('#messageList').listview('refresh');
+			$('#messageList').listview('refresh');   
 	}
 	
 		
     $.getJSON(s_url, function(data) {   
     	crossDomain: true,  	
     	console.log(" Result : " + data);
-        extractMessages(data);        
+        extractMessages(data);     
+    
     });
     
+   
     
-    $('a.messages.ui-link-inherit').bind( 'click', function (e) {
+   $('a.messages.ui-link-inherit').bind( 'click', function (e) {
     	e.preventDefault();
     	console.log( $(this).attr("href") + '   clicked!');
     	window.location.href = $(this).attr("href");
     })
-
 	
 });
 	
