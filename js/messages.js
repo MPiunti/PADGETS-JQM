@@ -50,10 +50,10 @@ $('#messagesPage').ready( function(event) {
 							var network = msg_smp.idPublishChannel.network;
 							
 							if(network === smp)	{			
-								$('#messageList').append('<li><a href="'+ comment_page + '" rel="external" data-ajax="false">' 
+								$('#messageList').append('<li><a href="'+ comment_page + '" data-ajax="false">' 
 								+ message.content + ' (' + network
 								 + ')</a><a href="'+ message.permalink
-								 +'" rel="external" data-ajax="false">PermaLink</a></li>' );
+								 +'" rel="external">PermaLink</a></li>' );
 							}
 						});
 					}
