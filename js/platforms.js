@@ -5,8 +5,6 @@
  * 			developed by Michele Piunti on May-Decemner 2012
  */
 
-
-
 $('#platformssPage').ready(function(event) {
 
 	sessionId = getUrlVars()["sessionId"];

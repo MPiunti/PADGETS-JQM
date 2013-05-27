@@ -11,7 +11,14 @@ var msg_count_URL = 'http://195.251.166.71:8080/PadgetsREST-web/resources/campai
 	
 function getCampaigns() {
 	
-		var s_url = Campaigns_APIURL+"?sid="+sessionId;//+'&callback=?';
+		var s_url = "";
+		if(typeof sessionId === 'undefined') {
+			sessionId="read_user";
+			s_url = Campaigns_APIURL+"/search?sid=read_user";			
+		}
+		else 
+		     s_url = Campaigns_APIURL+"?sid="+sessionId;//+'&callback=?';		
+		
 		//$.ajaxSetup({ scriptCharset: "utf-8" , contentType: "application/xml"});
 		console.log( " service url:  " + s_url);
 	
@@ -57,7 +64,11 @@ function extractCampaigns(data) {
 $('#campaignsPage').ready(function(event) {
 	userId = getUrlVars()["userId"];
 	sessionId = getUrlVars()["sessionId"];
-	campaignDetailURL = "cdetail.html?sessionId="+sessionId+"&cid=";
+	if(typeof sessionId === 'undefined') {
+		campaignDetailURL = "cdetail.html?sessionId=read_user&cid=";
+	}
+	else 
+		campaignDetailURL = "cdetail.html?sessionId="+sessionId+"&cid=";
 	getCampaigns();
 });
 	

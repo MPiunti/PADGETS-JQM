@@ -10,6 +10,12 @@ var url_redirect = "http://"+location.host;
 
 $(document).ready(function() {
 
+    $("#citizenLink").on("click", function(event) {
+    	var url_base = "http://rapidminersrv.aegean.gr:8088/Padgets-JQM/campaigns.html";
+		var strLink = url_redirect + "/Padgets-JQM/campaigns.html";				
+    	//this.setAttribute("href",strLink);  
+    	window.location.href = strLink;	
+    });
 
     
     $("#facebookLink").on("click", function(event) {
