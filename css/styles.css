@@ -16,6 +16,7 @@
 .padgets_home {
 	background-image: url("../img/padgets_a.png");
 	background-repeat: no-repeat;
+	background-size:100% 100%;
 	/*background-position-x: 35px;
 	background-position-y: 5px;	
 	background-position: center;*/

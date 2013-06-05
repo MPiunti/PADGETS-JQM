@@ -12,7 +12,8 @@ var msg_count_URL = 'http://195.251.166.71:8080/PadgetsREST-web/resources/campai
 function getCampaigns() {
 	
 		var s_url = "";
-		if(typeof sessionId === 'undefined') {
+		if(typeof sessionId === 'undefined'
+		   || sessionId === 'read_user') {
 			sessionId="read_user";
 			s_url = Campaigns_APIURL+"/search?sid=read_user";			
 		}
