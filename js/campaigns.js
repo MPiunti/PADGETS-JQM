@@ -16,6 +16,7 @@ function getCampaigns() {
 		   || sessionId === 'read_user') {
 			sessionId="read_user";
 			s_url = Campaigns_APIURL+"/search?sid=read_user";			
+			$('#userabout').html("About");
 		}
 		else 
 		     s_url = Campaigns_APIURL+"?sid="+sessionId;//+'&callback=?';		

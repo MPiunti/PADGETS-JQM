@@ -22,13 +22,18 @@ $('#messagesPage').ready( function(event) {
 	
 	cid = getUrlVars()["cid"];
 	sessionId = getUrlVars()["sessionId"];
+	if(typeof sessionId === 'undefined'
+		   || sessionId === 'read_user') {
+			sessionId="read_user";		
+			$('#userabout').html("About");
+	}	
 	smp = getUrlVars()["smp"];
 
 	//campaignDetailURL = "cdetail.html?sessionId="+sessionId+"&cid=";
 
 	var s_url = Campaigns_APIURL+"/"+cid+"/message/?sid="+sessionId+'&from=0';
 
-	console.log( "calling message service url:  " + s_url);
+	//console.log( "calling message service url:  " + s_url);
 
 	
 	function extractMessages(data) {

@@ -13,10 +13,22 @@
 	clear: both;
 }
 
-.padgets_home {
-	background-image: url("../img/padgets_a.png");
+.padgets_title {
+	background-image: url("../img/padgets_title.png");
 	background-repeat: no-repeat;
-	background-size:100% 100%;
+	background-size:90% 90%;
+	background-position:center; 
+	/*background-position-x: 35px;
+	background-position-y: 5px;	
+	background-position: center;*/
+}
+
+.padgets_logo {
+	background-image: url("../img/padgets_logo.png");
+	background-repeat: no-repeat;
+	background-size: 50% ;	
+	
+	background-position:center; 
 	/*background-position-x: 35px;
 	background-position-y: 5px;	
 	background-position: center;*/

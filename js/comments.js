@@ -22,6 +22,11 @@ $('#commentsPage').ready(function(event) {
 	mid = getUrlVars()["mid"];
 	cid = getUrlVars()["cid"];
 	sessionId = getUrlVars()["sessionId"];
+	if(typeof sessionId === 'undefined'
+		   || sessionId === 'read_user') {
+			sessionId="read_user";		
+			$('#userabout').html("About");
+	}	
 
 	var s_url = Comments_APIURL+"/"+mid+"/comment/?sid="+sessionId+'&from=0';
 

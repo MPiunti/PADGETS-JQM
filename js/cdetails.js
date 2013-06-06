@@ -9,11 +9,23 @@
 var Campaigns_APIURL = "http://195.251.166.71:8080/PadgetsREST-web/resources/campaign";
 var sessionId,cid;
 
+
+
+
+
 $('#cdetailsPage').ready(function(event) {
+	
+
+
+
 	//console.log ('ciao: ' + event );
 	cid = getUrlVars()["cid"];
 	sessionId = getUrlVars()["sessionId"];
-	console.log(" cid: : " + cid + " sessionId:" + sessionId);
+	if(typeof sessionId === 'undefined'
+		   || sessionId === 'read_user') {
+			sessionId="read_user";		
+			$('#userabout').html("About");
+	}
 	
 	var s_url = Campaigns_APIURL+"?sid="+sessionId;
 	//var woeid = 722347;
@@ -24,6 +36,8 @@ $('#cdetailsPage').ready(function(event) {
 	    });
 });
 
+
+	
 function displayCampaign(data) {
 	var campaignsJSON = eval(data);	
 	
