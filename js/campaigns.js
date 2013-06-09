@@ -41,7 +41,7 @@ function extractCampaigns(data) {
 			$('#campaignList li').remove();
 			if(campaignsJSON.length>0) {
 				$.each(campaignsJSON, function(index, campaign) {
-					console.log('campaign: ' + campaign.title);
+					//console.log('campaign: ' + campaign.title);
 	
 					if(campaign!= null){
 						var count_url = msg_count_URL+ campaign.idCampaign+ '/messagecount/?sid='+sessionId;

@@ -9,34 +9,6 @@
 var Campaigns_APIURL = "http://195.251.166.71:8080/PadgetsREST-web/resources/campaign";
 var sessionId,cid;
 
-
-
-
-
-$('#cdetailsPage').ready(function(event) {
-	
-
-
-
-	//console.log ('ciao: ' + event );
-	cid = getUrlVars()["cid"];
-	sessionId = getUrlVars()["sessionId"];
-	if(typeof sessionId === 'undefined'
-		   || sessionId === 'read_user') {
-			sessionId="read_user";		
-			$('#userabout').html("About");
-	}
-	
-	var s_url = Campaigns_APIURL+"?sid="+sessionId;
-	//var woeid = 722347;
-	 $.getJSON(s_url, function(data) {   
-	    	crossDomain: true,  	
-	    	console.log(" Result : " + data);
-	        displayCampaign(data);
-	    });
-});
-
-
 	
 function displayCampaign(data) {
 	var campaignsJSON = eval(data);	
@@ -64,10 +36,33 @@ function displayCampaign(data) {
 					}
 				});
 		$('#actionList li').remove();
-		$('#actionList').append('<li><a href="messages.html?sessionId=' + sessionId + '&cid='+cid+'&smp=facebook" data-transition="pop">Facebook</a></li>');
-		$('#actionList').append('<li><a href="messages.html?sessionId=' + sessionId + '&cid='+cid+'&smp=twitter" data-transition="pop">Twitter</a></li>');
-		$('#actionList').append('<li><a href="messages.html?sessionId=' + sessionId + '&cid='+cid+'&smp=blogger" data-transition="pop">Blogger</a></li>');
+		$('#actionList').append('<li><a rel="external" href="messages.html?sessionId=' + sessionId + '&cid='+cid+'&smp=facebook" data-transition="pop">Facebook</a></li>');
+		$('#actionList').append('<li><a rel="external" href="messages.html?sessionId=' + sessionId + '&cid='+cid+'&smp=twitter" data-transition="pop">Twitter</a></li>');
+		$('#actionList').append('<li><a rel="external" href="messages.html?sessionId=' + sessionId + '&cid='+cid+'&smp=blogger" data-transition="pop">Blogger</a></li>');
 		$('#actionList').listview('refresh');
 	}
 }
+
+
+
+$('#cdetailsPage').ready(function(event) {
+
+
+	//console.log ('ciao: ' + event );
+	cid = getUrlVars()["cid"];
+	sessionId = getUrlVars()["sessionId"];
+	if(typeof sessionId === 'undefined'
+		   || sessionId === 'read_user') {
+			sessionId="read_user";		
+			$('#userabout').html("About");
+	}
+	
+	var s_url = Campaigns_APIURL+"?sid="+sessionId;
+	//var woeid = 722347;
+	 $.getJSON(s_url, function(data) {   
+	    	crossDomain: true,  	
+	    	console.log(" Result : " + data);
+	        displayCampaign(data);
+	    });
+});
 

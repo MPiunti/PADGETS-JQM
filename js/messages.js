@@ -18,29 +18,11 @@ var sessionId, cid, smp;
 
 var msg_count_URL = "http://195.251.166.71:8080/PadgetsREST-web/resources/campaign/" ;//[campaign_id]/messagecount/?sid=';
 
-$('#messagesPage').ready( function(event) {
-	
-	cid = getUrlVars()["cid"];
-	sessionId = getUrlVars()["sessionId"];
-	if(typeof sessionId === 'undefined'
-		   || sessionId === 'read_user') {
-			sessionId="read_user";		
-			$('#userabout').html("About");
-	}	
-	smp = getUrlVars()["smp"];
-
-	//campaignDetailURL = "cdetail.html?sessionId="+sessionId+"&cid=";
-
-	var s_url = Campaigns_APIURL+"/"+cid+"/message/?sid="+sessionId+'&from=0';
-
-	//console.log( "calling message service url:  " + s_url);
-
-	
-	function extractMessages(data) {
+function extractMessages(data) {
 			//alert("extracting: " + data.exampleType);
 			var messagesJSON = eval(data);			
-			console.log( " Data: " + messagesJSON );		
-			console.log('messages n: '+ messagesJSON.count);
+			//console.log( " Data: " + messagesJSON );		
+			//console.log('messages n: '+ messagesJSON.count);
 			$('#messageList li').remove();
 			if(messagesJSON.length>0) {
 				$.each(messagesJSON, function(index, message) {
@@ -66,6 +48,26 @@ $('#messagesPage').ready( function(event) {
 			} //campaignsJSON.length>0
 			$('#messageList').listview('refresh');   
 	}
+
+$('#messagesPage').ready( function(event) {
+//$('#messagesPage').live('pageshow',function(event, ui){ 
+	cid = getUrlVars()["cid"];
+	sessionId = getUrlVars()["sessionId"];
+	if(typeof sessionId === 'undefined'
+		   || sessionId === 'read_user') {
+			sessionId="read_user";		
+			$('#userabout').html("About");
+	}	
+	smp = getUrlVars()["smp"];
+
+	//campaignDetailURL = "cdetail.html?sessionId="+sessionId+"&cid=";
+
+	var s_url = Campaigns_APIURL+"/"+cid+"/message/?sid="+sessionId+'&from=0';
+
+	//console.log( "calling message service url:  " + s_url);
+
+	
+	
 	
 		
     $.getJSON(s_url, function(data) {   
