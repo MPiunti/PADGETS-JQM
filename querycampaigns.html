@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Padgets.eu</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1"/>
+	<link rel="stylesheet" href="css/jquery.mobile-1.3.1.min.css" />
+	<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+	
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="js/jquery.mobile-1.3.1.min.js"></script>
+	
+	
+	<script src="js/custom.js"></script>
+
+
+	        
+	<div id="querycampaignsPage" data-role="page">
+	
+		<div data-role="header" data-position="fixed">
+			<h1>Padgets.eu</h1>
+		</div>
+	
+
+		<div data-role="content"> 
+			        
+	        <form action="campaigns.html" method="get"  data-ajax="false" name="form" id="form">
+		        <fieldset>
+		            <div data-role="fieldcontain">
+		                <label for="keyword">Search among PADGETS Czmpaigns by Keyword:</label>
+		                <input type="text" name="keyword" id="keyword" />
+		            </div>
+		            
+		            <div class="ui-grid-a">
+	                    <div class="ui-block-a">
+	                        <input type="submit" value="Search" data-theme="b"/>
+	                    </div>
+	                    <div class="ui-block-b">
+	                        <input type="reset" value="Quit" />
+	                    </div>
+	                </div>
+
+		        </fieldset>
+		    </form>
+
+	    </div>		
+
+
+		<!-- footer -->
+		<div data-role="footer">		
+			<!-- navbar -->
+			<div data-role="navbar">
+				<ul>
+					<li><a href="user.html" onclick="location.href=this.href+'?sessionId='+sessionId;return false;">
+						<div id="userabout">User Details</div></a></li>
+					<li>
+						<a href="campaigns.html" onclick="location.href=this.href+'?sessionId='+sessionId;return false;">
+						Campaigns</a>
+					</li>
+					<li>
+						<a href="platforms.html" onclick="location.href=this.href+'?sessionId='+sessionId;return false;">
+						Linked Social Media</a>
+					</li>
+				</ul>
+			</div><!-- /navbar -->
+			<h4>PADGETS Campaigns</h4>
+		</div><!-- /footer -->
+	
+	</div>
+
+</body>

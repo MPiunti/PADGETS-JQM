@@ -2,7 +2,7 @@ var Campaigns_APIURL = "http://195.251.166.71:8080/PadgetsREST-web/resources/cam
 
 
 var campaignDetailURL;
-var userId,sessionId;
+var userId,sessionId,keyword;
 var count;
 						
 
@@ -21,6 +21,10 @@ function getCampaigns() {
 		else 
 		     s_url = Campaigns_APIURL+"?sid="+sessionId;//+'&callback=?';		
 		
+		if(!typeof keyword==='undefined' || keyword != null){
+			s_url += '&keyword='+keyword;
+		}
+		
 		//$.ajaxSetup({ scriptCharset: "utf-8" , contentType: "application/xml"});
 		console.log( " service url:  " + s_url);
 	
@@ -36,8 +40,8 @@ function getCampaigns() {
 function extractCampaigns(data) {
 			//alert("extracting: " + data.exampleType);
 			var campaignsJSON = eval(data);			
-			console.log( " Data: " + campaignsJSON );		
-			console.log('campaigns n: '+ campaignsJSON.count);
+			//console.log( " Data: " + campaignsJSON );		
+			//console.log('campaigns n: '+ campaignsJSON.count);
 			$('#campaignList li').remove();
 			if(campaignsJSON.length>0) {
 				$.each(campaignsJSON, function(index, campaign) {
@@ -50,12 +54,14 @@ function extractCampaigns(data) {
 							'<h4>' + campaign.title + '</h4>'
 							+'<span name="msg_'+index+'" class="ui-li-count"></span></a></li>' );
 						
-						$.getJSON(count_url, function(data) {   
-	    					crossDomain: true,  	
-	    					count = data.count;
-					    	//console.log(" msg count is : " + count);
-					    	$('[name="msg_'+index+'"]').append(count);				
-					    });
+						if(! typeof sessionId === 'undefined' & sessionId != 'read_user'){
+							$.getJSON(count_url, function(data) {   
+		    					crossDomain: true,  	
+		    					count = data.count;
+						    	//console.log(" msg count is : " + count);
+						    	$('[name="msg_'+index+'"]').append(count);				
+						    });
+					   }
 					}
 				});
 			} //campaignsJSON.length>0
@@ -66,6 +72,8 @@ function extractCampaigns(data) {
 $('#campaignsPage').ready(function(event) {
 	userId = getUrlVars()["userId"];
 	sessionId = getUrlVars()["sessionId"];
+	keyword = getUrlVars()["keyword"];
+	
 	if(typeof sessionId === 'undefined') {
 		campaignDetailURL = "cdetail.html?sessionId=read_user&cid=";
 	}
